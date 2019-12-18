@@ -17,17 +17,17 @@ Then, like in a MVC View, just set the Template to use (if you want), do your lo
 
 This methods come with the lib:
 
-* **AddLibraries**(string|string[] Scripts)  
+* **AddLibraries**(string|string[] **Scripts**)  
 Adds scripts to be loaded as a libraries (on &lt;head&gt;)
-* **AddPlugins**(string|string[] Scripts)  
+* **AddPlugins**(string|string[] **Scripts**)  
 Adds scripts to be loaded as a plugins (on &lt;body&gt;, after page's content).
 * **AfterView**()  
 Clears variables after the View is executed, preparing the script to end.
 * **BeforeView**()  
 Anything to be executed right before the View is executed (nothing by default).
-* **GetScripts**(string|string[]|Dictionary Files)  
+* **GetScripts**(string|string[]|Dictionary **Files**)  
 Prints all given CSS/JS scripts in HTML tags.
-* string **ScriptName**(string File)  
+* string **ScriptName**(string **File**)  
 Gets the file name of the File on provided path.
 * **View**()  
 Displays the configured View file on current Template.  
@@ -36,17 +36,17 @@ Displays the configured View file on current Template.
 
 There are also the following Collections:
 
-* **AddLibraries**(string|string[] Scripts)  
+* **AddLibraries**(string|string[] **Scripts**)  
 Adds scripts to be loaded as a libraries (on &lt;head&gt;)
-* **AddPlugins**(string|string[] Scripts)  
+* **AddPlugins**(string|string[] **Scripts**)  
 Adds scripts to be loaded as a plugins (on &lt;body&gt;, after page's content).
 * **AfterView**()  
 Clears variables after the View is executed, preparing the script to end.
 * **ViewData**()  
 Settings of the layout engine.
-    * **ViewData("libraries")**()  
+    * **ViewData(*"libraries"*)**()  
     Scripts to be loaded on &lt;head&gt;.
-    * **ViewData("plugins")**()  
+    * **ViewData(*"plugins"*)**()  
     Scripts to be loaded on &lt;body&gt;, after page's content.
 * **ViewBag**  
 Arbitrary user data.
@@ -56,26 +56,26 @@ Arbitrary user data.
 
 All data tha is used to control this Layout engine behavior are keys of ViewData collection:
 
-* string **ViewData("charset")**  
+* string **ViewData(*"charset"*)**  
 Defines the HTML header for page charset. Must be manually set.
-* bool **ViewData("no-cache")**  
+* bool **ViewData(*"no-cache"*)**  
 If the page and scripts must avoid cache.  
 When true, ASP headers will be set to avoid cache and scripts will be loaded with a timestamp querystring.
-* string **ViewData("page")**  
+* string **ViewData(*"page"*)**  
 Current page filename (without extension).  
 It's used to search the view.
-* string **ViewData("path")**  
+* string **ViewData(*"path"*)**  
 Relative path of the current script.
-* string **ViewData("ready")**  
+* string **ViewData(*"ready"*)**  
 Exact time when the library finished loading, in database timestamp format.
-* Date **ViewData("ready-timestamp")**  
+* Date **ViewData(*"ready-timestamp"*)**  
 Exact time when the library finished loading.
-* string **ViewData("script")**  
+* string **ViewData(*"script"*)**  
 Current page filename (with extension).
-* string **ViewData("template")**  
+* string **ViewData(*"template"*)**  
 Template file used to generate the page.  
 When it's an empty string (default), the default blank HTML template is used.
-* string **ViewData("title")**  
+* string **ViewData(*"title"*)**  
 Page title, used for HTML &lt;head&gt;.
 
 
@@ -84,10 +84,10 @@ Page title, used for HTML &lt;head&gt;.
 
 You can easily extend this lib without even looking at it's code all, just going by one of this four ways - from the easiest to the most flexible:
 
-* *Changing ViewData's values*  
+* **Changing *ViewData*'s values**  
 Just add new keys with custom settings to your templates.
-* *Overriding the provided functions*  
+* **Overriding the provided functions**  
 Any function in VBScript can be overriden just declaring a new one with the same name after.
-* *Including the lib in a custom Layout script*  
+* **Including the lib in a custom Layout script**  
 To keep a great performance it's better to use a ASP Include instead of Dynamic Include's functions
-* *All the previous together*
+* **All of the previous**
