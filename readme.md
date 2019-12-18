@@ -1,17 +1,20 @@
-# ASP Layout
+# ASP Layout - lightweight distribution
 
 A minimalist Layout engine to use on Classic ASP projects, inspired by ASP.Net MVC projects but (obviously) a lot simpler.
 
-This library uses ASP [ASP-Dynamic-Include](https://github.com/the-linck/ASP-Dynamic-Include) to call Templates and Views set on the provided configuration variables.
+This library uses ASP [ASP-Dynamic-Include](https://github.com/the-linck/ASP-Dynamic-Include) to call Templates and Views set on the provided configuration variables. Yet, this branch doesn't ship the library - instead it leaves up to you put this dependency on your project and load it.
 
 As the mentionend base-project, there are not many relevent new resources to be added here, so certainly it won't be updated frequenly - except in case of errors or problems.
 
 
+
 ## How to use
 
-You can either include _ASP-Dynamic-Include/DynamicInclude.asp_ and _Layout.asp_ manually on your project or just include the convenience-file _Bundle.asp_ to automatically have both libs at once.
+Include _Layout.asp_ on your project then, like in a MVC View, just set the Template to use (if you want), do your logic and call _View()_ method when you want to show your page's content.
 
-Then, like in a MVC View, just set the Template to use (if you want), do your logic and call _View()_ method when you want to show your page's content.
+*Warning: even with ASP-Dynamic-Include not being called until the view is executed, it's recommended to load it **before** ASP Layout*
+
+
 
 ## Provided methods and Collections
 
