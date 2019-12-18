@@ -2,7 +2,7 @@
 
 A minimalist Layout engine to use on Classic ASP projects, inspired by ASP.Net MVC projects but (obviously) a lot simpler.
 
-This library uses ASP [ASP-Dynamic-Include]() to call Templates and Views set on the provided configuration variables.
+This library uses ASP [ASP-Dynamic-Include](https://github.com/the-linck/ASP-Dynamic-Include) to call Templates and Views set on the provided configuration variables.
 
 As the mentionend base-project, there are not many relevent new resources to be added here, so certainly it won't be updated frequenly - except in case of errors or problems.
 
