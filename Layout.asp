@@ -9,14 +9,13 @@ Sub AddLibraries(ByRef Scripts)
     Dim Script
     if IsArray(Scripts) then
         For Each Script in Scripts
-            ' Checking type to prevent errors
-            if VarType(Script) = vbString then
+            if VarType(Script) = vbString then ' Checking type to prevent errors
                 Libraries(Index) = Script
 
                 Index = Index + 1
             end if
         Next
-    else
+    elseif VarType(Scripts) = vbString then ' Checking type to prevent errors
         Script = Scripts
 
         Libraries(Index) = Script
@@ -25,23 +24,22 @@ End Sub
 ' Adds scripts to be loaded as a plugins (on <body>, after page's content).
 ' @param {string|string[]} Scripts
 Sub AddPlugins(ByRef Scripts)
-    Dim Libraries : set Libraries = ViewData("plugins")
-    Dim Index : Index = Libraries.Count
+    Dim Plugins : set Plugins = ViewData("plugins")
+    Dim Index : Index = Plugins.Count
 
     Dim Script
     if IsArray(Scripts) then
         For Each Script in Scripts
-            ' Checking type to prevent errors
-            if VarType(Script) = vbString then
-                Libraries(Index) = Script
+            if VarType(Script) = vbString then ' Checking type to prevent errors
+                Plugins(Index) = Script
 
                 Index = Index + 1
             end if
         Next
-    else
+    elseif VarType(Scripts) = vbString then ' Checking type to prevent errors
         Script = Scripts
 
-        Libraries(Index) = Script
+        Plugins(Index) = Script
     end if
 End Sub
 
@@ -94,7 +92,7 @@ Sub GetScripts(ByRef Files)
 
     For Each File in Iterate
         Extension = LCase( _
-            Right(File, Len(File) - (InStrRev(File, ".") + 1))
+            Right(File, Len(File) - (InStrRev(File, "."))) _
         )
         Path(0) = File
 
@@ -142,7 +140,7 @@ Set ViewData("plugins")      = CreateObject("Scripting.Dictionary")
 
 
 
-' PHP-named variables to access useful collections 
+' PHP-named variables to access useful collections
 ' Shorthand for Querystring variables
 Dim GET_    : Set GET_    = Request.Querystring
 ' Shorthand for Formdata variables
@@ -176,7 +174,7 @@ Dim ViewBag : set ViewBag = CreateObject("Scripting.Dictionary")
 LAYOUT_TMP = Now()
 ' Library load timestamp
 ViewData("ready-timestamp") = Join(Array(_
-    Year(LAYOUT_TMP), "-", Month(LAYOUT_TMP), "-", Day(LAYOUT_TMP), " "_
+    Year(LAYOUT_TMP), "-", Month(LAYOUT_TMP), "-", Day(LAYOUT_TMP), " ", _
     Hour(LAYOUT_TMP), ":", Minute(LAYOUT_TMP), ":", Second(LAYOUT_TMP) _
 ), vbNullString)
 ViewData("ready") = LAYOUT_TMP
