@@ -36,12 +36,12 @@ Displays the configured View file on current Template.
 
 There are also the following Collections:
 
-* **AddLibraries**(string|string[] **Scripts**)  
-Adds scripts to be loaded as a libraries (on &lt;head&gt;)
-* **AddPlugins**(string|string[] **Scripts**)  
-Adds scripts to be loaded as a plugins (on &lt;body&gt;, after page's content).
-* **AfterView**()  
-Clears variables after the View is executed, preparing the script to end.
+* **GET_**()  
+PHP-like Alias for Request.Querystring
+* **POST_**()  
+PHP-like Alias for Request.Form
+* **SERVER_**()  
+PHP-like Alias for Request.ServerVariables
 * **ViewData**()  
 Settings of the layout engine.
     * **ViewData(*"libraries"*)**()  
